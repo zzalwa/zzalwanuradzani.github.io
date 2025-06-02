@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zalwa Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-soft-pink: #fde2e4;
+            --secondary-soft-purple: #e0bfe0; 
+            --text-dark: #4a4e69; 
+            --text-light: #7c7c97; 
+            --accent-pink: #ffc2d1; 
+            --accent-purple: #c4a7e7; 
+            --white-card: #ffffff;
+            --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08);
+            --border-radius-lg: 18px;
+            --border-radius-sm: 8px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 30px;
+            background-color: var(--primary-soft-pink);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 950px; 
+            width: 100%;
+            background-color: transparent; 
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-light); 
+            display: flex;
+            flex-direction: column;
+            gap: 25px; 
+        }
+
+        .hero-section {
+            background-color: var(--white-card);
+            border-radius: var(--border-radius-lg);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            box-shadow: var(--shadow-light);
+            background-image: url('zalwaa.jpeg'); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+        }
+
+        .profile-pic-container {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 0 5px var(--white-card), 0 0 0 7px var(--accent-pink); 
+            flex-shrink: 0; 
+            margin-bottom: 20px;
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bio-text {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .hello-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .hello-text span {
+            color: var(--accent-purple);
+        }
+
+        .name-and-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .name-and-title h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            margin: 0;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .job-title-badge {
+            background-color: var(--secondary-soft-purple);
+            color: var(--white-card);
+            padding: 8px 18px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .contact-info-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .contact-info-hero p {
+            margin: 0;
+            font-size: 0.95em;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-info-hero a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info-hero a:hover {
+            color: var(--accent-purple);
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 25px;
+        }
+
+        .left-panel, .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-card {
+            background-color: var(--white-card);
+            border-radius: var(--border-radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-light);
+            position: relative;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6em;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .section-header .section-number {
+            background-color: var(--secondary-soft-purple);
+            color: var(--white-card);
+            padding: 6px 12px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-date {
+            flex: 0 0 100px; 
+            background-color: var(--accent-pink);
+            color: var(--white-card);
+            padding: 8px 0;
+            border-radius: var(--border-radius-sm);
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: 600;
+            position: relative;
+            align-self: flex-start; 
+            margin-right: 25px;
+        }
+
+        .timeline-date::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -12.5px; 
+            transform: translateY(-50%);
+            width: 25px;
+            height: 25px;
+            background-color: var(--accent-purple);
+            border-radius: 50%;
+            border: 4px solid var(--white-card);
+            box-shadow: 0 0 0 2px var(--accent-pink);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            flex-grow: 1;
+            padding-top: 5px; 
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2em;
+            color: var(--text-dark);
+            margin: 0 0 5px 0;
+        }
+
+        .timeline-content .company {
+            font-size: 1em;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin: 0;
+            color: var(--text-light);
+        }
+        .timeline-content ul li {
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1em;
+            color: var(--secondary-soft-purple);
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .skill-list span {
+            background-color: var(--accent-pink);
+            color: var(--white-card);
+            padding: 7px 14px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.85em;
+            font-weight: 500;
+            cursor: default;
+            transition: background-color 0.3s ease;
+        }
+        .skill-list span:hover {
+            background-color: #f7a4b0;
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+        .education-item h3 {
+            font-size: 1.2em;
+            color: var(--text-dark);
+            margin: 0 0 5px 0;
+        }
+        .education-item .details {
+            font-size: 0.95em;
+            color: var(--text-light);
+        }
+
+        .hobbies-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+        .hobby-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 80px; 
+        }
+        .hobby-item i {
+            font-size: 2.5em;
+            color: var(--accent-purple);
+            transition: transform 0.3s ease;
+        }
+        .hobby-item i:hover {
+            transform: scale(1.1);
+        }
+        .hobby-item span {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        
+        .contact-bottom-card {
+            background-color: var(--accent-purple);
+            color: var(--white-card);
+            border-radius: var(--border-radius-lg);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+        }
+        .contact-bottom-card i {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .contact-bottom-card p {
+            margin: 5px 0;
+            font-size: 1.1em;
+            color: var(--white-card);
+        }
+        .contact-bottom-card a {
+            color: var(--white-card);
+            text-decoration: none;
+            transition: text-decoration 0.3s ease;
+        }
+        .contact-bottom-card a:hover {
+            text-decoration: underline;
+        }
+
+       
+        @media (min-width: 768px) {
+            .hero-section {
+                flex-direction: row;
+                text-align: left;
+                padding: 40px;
+            }
+            .profile-pic-container {
+                margin-right: 30px;
+                margin-bottom: 0;
+            }
+            .hero-content {
+                align-items: flex-start;
+                text-align: left;
+            }
+            .name-and-title {
+                flex-direction: row;
+                align-items: center;
+                gap: 15px;
+            }
+            .contact-info-hero {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 25px;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr 1fr; 
+            }
+            .left-panel {
+                order: 1; 
+            }
+            .right-panel {
+                order: 2; 
+            }
+            .contact-bottom-card {
+                grid-column: 1 / 2; 
+                order: 3; 
+            }
+            .section-card.full-width {
+                grid-column: 1 / -1; 
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .container {
+                display: block; 
+                background-color: var(--white-card); 
+                padding: 0;
+                box-shadow: var(--shadow-light);
+            }
+            .hero-section {
+                border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; 
+                background-image: none; 
+                background-color: var(--white-card);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 40px 50px;
+                gap: 40px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            .profile-pic-container {
+                margin-bottom: 0;
+                margin-right: 0; 
+                box-shadow: none; 
+            }
+             .profile-pic-container img {
+                box-shadow: 0 0 0 5px var(--white-card), 0 0 0 7px var(--accent-pink); 
+            }
+            .hello-text {
+                font-size: 1.8em; 
+            }
+            .name-and-title {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 20px;
+                width: auto;
+            }
+            .name-and-title h1 {
+                font-size: 2.2em; 
+            }
+            .job-title-badge {
+                padding: 6px 15px;
+                font-size: 0.85em;
+            }
+            .contact-info-hero {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 25px;
+                margin-top: 10px;
+            }
+            .bio-text {
+                text-align: left;
+            }
+
+            .main-grid {
+                grid-template-columns: 2fr 1fr; 
+                padding: 30px 50px; 
+            }
+            .left-panel {
+                gap: 25px;
+                padding-right: 25px;
+            }
+            .right-panel {
+                gap: 25px;
+                padding-left: 25px; 
+                border-left: 1px solid #eee; 
+            }
+            .contact-bottom-card {
+                grid-column: 1/2;
+            }
+            
+            #skills-expertise, #education, #hobbies {
+                grid-column: auto; 
+                grid-row: auto;
+            }
+
+           
+            .timeline-date::after {
+                right: -12.5px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <div class="profile-pic-container">
+                <img src="zalwaa.jpeg" alt="Foto Profil Zalwa">
+            </div>
+            <div class="hero-content">
+                <div class="bio-text">
+                    <p class="hello-text">Hi! I'm <span>Zalwa Nur Adzani</span></p>
+                    <div class="name-and-title">
+                        <span class="job-title-badge">Sistem Informasi</span>
+                    </div>
+                    <p style="color: var(--text-dark); margin-bottom: 0;">Saya adalah seorang mahasiswa Sistem Informasi yang memiliki minat dan kemampuan dalam pengembangan sistem informasi, analisis data, dan desain antarmuka pengguna. Saya memiliki pengalaman dalam mengembangkan aplikasi mobile dan sistem informasi manajemen menggunakan berbagai teknologi seperti Java, Python, dan PHP. Saya siap untuk memulai karir sebagai profesional di bidang Sistem Informasi dan berkontribusi pada tim yang dinamis.</p>
+                </div>
+                <div class="contact-info-hero">
+                    <p><a href="mailto:zalwaadzani@gmail.com"><i class="fas fa-envelope"></i> zalwaadzani@gmail.com</a></p>
+                    <p><a href="https://www.linkedin.com/in/zalwaadzani" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/zalwaadzani</a></p>
+                    <p><a href="https://www.instagram.com/_zzalwaa" target="_blank"><i class="fab fa-instagram"></i> @_zzalwaa</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="left-panel">
+                <section class="section-card" id="work-experience">
+                    <div class="section-header">
+                        <h2>Pengalaman Proyek</h2>
+                        <span class="section-number">01</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Sept 2024 - Des 2024</div>
+                        <div class="timeline-content">
+                            <h3>Sistem Informasi Akademik</h3>
+                            <p class="company">Peran: Pengembang Aplikasi</p>
+                            <ul>
+                                <li>Deskripsi: Mengembangkan sistem informasi akademik untuk mengelola data mahasiswa, dosen, dan mata kuliah. Sistem ini dirancang untuk memudahkan proses administrasi akademik dan meningkatkan efisiensi dalam pengelolaan data.</li>
+                                <li>Teknologi: PHP, MySQL, CodeIgniter</li>
+                                <li>Hasil: Sistem informasi akademik yang efektif dan efisien dalam mengelola data mahasiswa, dosen, dan mata kuliah.</li>
+                                <li>Tantangan: Mengintegrasikan sistem dengan database yang sudah ada dan memastikan keamanan data.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-card contact-bottom-card" id="contact-info-card">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Phone: +6281536217840</p>
+                    <p>Address: Marindal 1, Jalan Setia</p>
+                    <p>Email: <a href="mailto:zalwaadzani@gmail.com">zalwaadzani@gmail.com</a></p>
+                </section>
+            </div>
+
+            <div class="right-panel">
+                <section class="section-card" id="skills-expertise">
+                    <div class="section-header">
+                        <h2>Keahlian & Skill</h2>
+                        <span class="section-number">02</span>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Hard Skill:</h3>
+                        <div class="skill-list">
+                            <span>Java</span>
+                            <span>Python</span>
+                            <span>Java Script</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>Oracle</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skill:</h3>
+                        <ul class="soft-skill-list">
+                            <li>Mampu berkolaborasi secara efektif dalam tim.</li>
+                            <li>Mampu menghasilkan ide-ide baru dalam desain dan solusi.</li>
+                            <li>Cepat beradaptasi dengan teknologi dan lingkungan baru.</li>
+                            <li>Berpikir sistematis dan terorganisir.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section-card" id="education">
+                    <div class="section-header">
+                        <h2>Pendidikan</h2>
+                        <span class="section-number">03</span>
+                    </div>
+                    <div class="education-item">
+                        <h3>Universitas Muhammadiyah Sumatera Utara</h3>
+                        <p class="details"> Jurusan Sistem Informasi</p>
+                        <p class="details">(2023-sekarang) </p>
+                    </div>
+                    <div class="education-item">
+                        <h3>SMAN 1 Delitua</h3>
+                        <p class="details">IPA (Ilmu Pengetahuan Alam)</p>
+                        <p class="details">(2020-2023)</p>
+                    </div>
+                </section>
+
+                <section class="section-card" id="personal-data">
+                    <div class="section-header">
+                        <h2>Data Pribadi</h2>
+                        <span class="section-number">04</span>
+                    </div>
+                    <ul>
+                        <li><strong>Nama</strong>: Zalwa Nur Adzani</li>
+                        <li><strong>Tempat, Tanggal Lahir</strong>: Medan, 24 Desember 2005</li>
+                        <li><strong>Alamat</strong>: Marindal 1, Jalan Setia</li>
+                        <li><strong>Jenis Kelamin</strong>: Perempuan</li>
+                        <li><strong>Kewarganegaraan</strong>: Indonesia</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
